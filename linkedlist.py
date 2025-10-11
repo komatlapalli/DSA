@@ -112,4 +112,6 @@ class Linkedlist:
         if index == self.length:
             self.tail = temp_node
         return removed_node.value
+
+    
     
