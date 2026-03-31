@@ -10,6 +10,8 @@ leftChild = TreeNode("Hot")
 rightChild = TreeNode("Cold")
 newBT.leftChild = leftChild
 newBT.rightChild = rightChild
+tea = TreeNode("Tea")
+coffee = TreeNode("coffee")
 
 def preOrderTraversal(rootNode):
     if not rootNode:
@@ -18,4 +20,6 @@ def preOrderTraversal(rootNode):
     preOrderTraversal(rootNode.leftChild)
     preOrderTraversal(rootNode.rightChild)
 
-preOrderTraversal(newBT)
+
+def searchBT(rootNode):
+    pass
