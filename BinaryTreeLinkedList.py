@@ -1,3 +1,4 @@
+import QueueLinkedList as queue
 class TreeNode:
     def __init__(self,data):
         self.data = data
@@ -21,5 +22,12 @@ def preOrderTraversal(rootNode):
     preOrderTraversal(rootNode.rightChild)
 
 
-def searchBT(rootNode):
-    pass
+def searchBT(rootNode, nodeValue):
+    if not rootNode:
+        return "The BT does not exist"
+    else:
+        customQueue = queue.Queue()
+        customQueue.enqueue(rootNode)
+        while not (customQueue.isEmpty()):
+            root = customQueue.dequeue()
+            
