@@ -39,7 +39,7 @@ def searchBT(rootNode, nodeValue):
             if (root.value.rightChild is not None):
                 customQueue.enqueue(root.value.rightChild)
         
-        return "Not Found "
+        return "Not Found"
             
 
 print(searchBT(newBT, "Tea"))
