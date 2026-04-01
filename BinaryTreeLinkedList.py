@@ -13,6 +13,8 @@ newBT.leftChild = leftChild
 newBT.rightChild = rightChild
 tea = TreeNode("Tea")
 coffee = TreeNode("coffee")
+leftChild.leftChild = tea
+leftChild.rightChild = coffee
 
 def preOrderTraversal(rootNode):
     if not rootNode:
@@ -30,4 +32,14 @@ def searchBT(rootNode, nodeValue):
         customQueue.enqueue(rootNode)
         while not (customQueue.isEmpty()):
             root = customQueue.dequeue()
+            if root.value.data == nodeValue:
+                return "Success"
+            if (root.value.leftChild is not None):
+                customQueue.enqueue(root.value.leftChild)
+            if (root.value.rightChild is not None):
+                customQueue.enqueue(root.value.rightChild)
+        
+        return "Not Found"
             
+
+print(searchBT(newBT, "Tea"))
