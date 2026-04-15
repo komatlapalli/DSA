@@ -15,12 +15,20 @@ class Trie:
             currentNode = currentNode.children[char]
         currentNode.endOfString = True
 
+    def search(self, word):
+        currentNode = self.root
+        for char in word:
+            if char not in currentNode.children:
+                return False
+            currentNode = currentNode.children[char]
+        return currentNode.endOfString
+
+
 
 newTrie = Trie()
 newTrie.insert("apple")
-print(newTrie.root.children)
-print(newTrie.root.children['a'].children)
-print(newTrie.root.children['a'].children['p'].children)  # Output: {'a': <__main__.TrieNode object at 0x...>   }
-print(newTrie.root.children['a'].children['p'].children['p'].children)  # Output: {'l': <__main__.TrieNode object at 0x...>   }
-print(newTrie.root.children['a'].children['p'].children['p'].children['l'].children)  # Output: {'e': <__main__.TrieNode object at 0x...>   }
-print(newTrie.root.children['a'].children['p'].children['p'].children['l'].children['e'].endOfString)  # Output: True                           
+newTrie.insert("app")
+print(newTrie.search("apple"))  # Output: True
+print(newTrie.search("app"))    # Output: True
+print(newTrie.search("ap"))     # Output: False
+                         
