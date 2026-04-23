@@ -19,7 +19,18 @@ def selectionSort(customList):
         customList[i], customList[min_index] = customList[min_index], customList[i]
     print(customList)
 
+def insertionSort(customList):
+    for i in range(1, len(customList)):
+        key = customList[i]
+        j = i-1
+        while j>=0 and key < customList[j]:
+            customList[j], customList[j+1] = key,customList[j]
+            j-=1
+    print(customList)
 
-customList = [9,8,7,5,6,4,3,2,1]
+            
+
+
+customList = [1,9,8,5,2,4,3]
 print(customList)
-selectionSort(customList)
+insertionSort(customList)
