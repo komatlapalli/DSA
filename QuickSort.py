@@ -10,3 +10,15 @@ def pivot(myList,pivot_index, end_index):
     swap(myList, pivot_index, swap_index)
     return swap_index
 
+def quickSort_helper(myList, left, right):
+    if left < right:
+        pivot_index = pivot(myList, left, right)
+        quickSort_helper(myList, left, pivot_index-1)
+        quickSort_helper(myList, pivot_index+1, right)
+    return myList
+
+def quickSort(myList):
+    return quickSort_helper(myList, 0, len(myList)-1)
+
+myList = [4, 2, 6, 5, 1, 3]
+print(quickSort(myList))
