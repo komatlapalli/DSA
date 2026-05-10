@@ -23,7 +23,6 @@ def preOrderTraversal(rootNode):
     preOrderTraversal(rootNode.leftChild)
     preOrderTraversal(rootNode.rightChild)
 
-<<<<<<< HEAD
 preOrderTraversal(newBT)
 
 def inOrderTraversal(rootNode):
@@ -34,7 +33,6 @@ def inOrderTraversal(rootNode):
     inOrderTraversal(rootNode.rightChild)
 
 inOrderTraversal(newBT)
-=======
 
 def searchBT(rootNode, nodeValue):
     if not rootNode:
@@ -78,4 +76,3 @@ cola = TreeNode("Cola")
 
 print(insertNodeBT(newBT, cola))
 print(searchBT(newBT, "Cola"))
->>>>>>> ac666cf29454e1474b11cc8e1ff6f2a5ead75fca
