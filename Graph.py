@@ -18,13 +18,36 @@ class Graph:
             self.adjacency_list[vertex2].append(vertex1)
             return True
         return False
+    
+    def remove_edge(self, vertex1, vertex2):
+        if vertex1 in self.adjacency_list and vertex2 in self.adjacency_list:
+            if vertex2 in self.adjacency_list[vertex1]:
+                self.adjacency_list[vertex1].remove(vertex2)
+            if vertex1 in self.adjacency_list[vertex2]:
+                self.adjacency_list[vertex2].remove(vertex1)
+            return True
+        return False
+    
+    def remove_vertex(self, vertex):
+        if vertex in self.adjacency_list:
+            for other_vertex in self.adjacency_list[vertex]:
+                self.adjacency_list[other_vertex].remove(vertex)
+            del self.adjacency_list[vertex]
+            return True
+        return False
+
+
 
 
 
 myGraph = Graph()
 myGraph.add_vertex("A")
 myGraph.add_vertex("B")
+myGraph.add_vertex("C")
 myGraph.add_edge("A", "B")
-print(myGraph.adjacency_list)
+myGraph.add_edge("A", "C")  
+myGraph.add_edge("B", "C")
+myGraph.remove_vertex("C")
+myGraph.print_graph()
 
 
