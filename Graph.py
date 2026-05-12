@@ -1,22 +1,30 @@
 class Graph:
-    def __init__(self,gdict = None):
-        if gdict is None:
-            gdict = {}
-        self.gdict = gdict
+    def __init__(self):
+        self.adjacency_list = {}
 
-    def addEdge(self,vertex,edge):
-        self.gdict[vertex].append(edge)
+    def add_vertex(self, vertex):
+        if vertex not in self.adjacency_list:
+            self.adjacency_list[vertex] = []
+            return True
+        return False
+    
+    def print_graph(self):
+        for vertex in self.adjacency_list:
+            print(vertex, ":", self.adjacency_list[vertex])
+
+    def add_edge(self, vertex1, vertex2):
+        if vertex1 in self.adjacency_list and vertex2 in self.adjacency_list:
+            self.adjacency_list[vertex1].append(vertex2)
+            self.adjacency_list[vertex2].append(vertex1)
+            return True
+        return False
 
 
 
-customDict = { "a" : ["d"],
-               "b" : ["c"],
-               "c" : ["b", "c", "d", "e"],
-               "d" : ["a", "c"],
-               "e" : ["c"],
-               "f" : []}
+myGraph = Graph()
+myGraph.add_vertex("A")
+myGraph.add_vertex("B")
+myGraph.add_edge("A", "B")
+print(myGraph.adjacency_list)
 
-g = Graph(customDict)
-g.addEdge("a","f")
-g.addEdge("f","a")
-print(g.gdict)
+
