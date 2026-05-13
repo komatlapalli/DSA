@@ -49,6 +49,20 @@ class Graph:
                     visited.add(neighbor)
                     queue.append(neighbor)
 
+    def dfs(self, start_vertex):
+        visited = set()
+        stack = [start_vertex]
+        while stack:
+            vertex = stack.pop()
+            current_vertex = vertex
+            if current_vertex not in visited:
+                visited.add(current_vertex)
+                print(current_vertex)
+            for neighbor in self.adjacency_list[current_vertex]:
+                if neighbor not in visited:
+                    stack.append(neighbor)
+
+        
 
 
 
@@ -62,6 +76,7 @@ myGraph.add_edge("A", "B")
 myGraph.add_edge("A", "D")
 myGraph.add_edge("A", "C")  
 myGraph.add_edge("B", "C")
-myGraph.bfs("A")
+myGraph.dfs("A")
+
 
 
