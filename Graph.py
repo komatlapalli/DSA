@@ -36,6 +36,19 @@ class Graph:
             return True
         return False
 
+    def bfs(self, start_vertex):
+        visited = set()
+        visited.add(start_vertex)
+        queue = [start_vertex]
+        while queue:
+            vertex = queue.pop(0)
+            current_vertex = vertex
+            print(current_vertex)
+            for neighbor in self.adjacency_list[current_vertex]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    queue.append(neighbor)
+
 
 
 
@@ -44,10 +57,11 @@ myGraph = Graph()
 myGraph.add_vertex("A")
 myGraph.add_vertex("B")
 myGraph.add_vertex("C")
+myGraph.add_vertex("D")
 myGraph.add_edge("A", "B")
+myGraph.add_edge("A", "D")
 myGraph.add_edge("A", "C")  
 myGraph.add_edge("B", "C")
-myGraph.remove_vertex("C")
-myGraph.print_graph()
+myGraph.bfs("A")
 
 
