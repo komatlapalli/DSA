@@ -62,6 +62,22 @@ class Graph:
                 if neighbor not in visited:
                     stack.append(neighbor)
 
+    def _topological_sort_helper(self, vertex, visited, stack):
+        visited.add(vertex)
+        for neighbor in self.adjacency_list[vertex]:
+            if neighbor not in visited:
+                self._topological_sort_helper(neighbor, visited, stack)
+        stack.append(vertex)
+        
+    def topological_sort(self):
+        visited = set()
+        stack = []
+        for vertex in self.adjacency_list:
+            if vertex not in visited:
+                self._topological_sort_helper(vertex, visited, stack)
+        return stack[::-1]
+
+
         
 
 
